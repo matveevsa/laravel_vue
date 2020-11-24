@@ -88,8 +88,9 @@ class NoteController extends Controller
      * @param  \App\Models\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Note $note)
+    public function destroy($id)
     {
-        //
+        $note = Note::findOrFail($id);
+        return $note->delete();
     }
 }
